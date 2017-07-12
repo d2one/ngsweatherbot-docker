@@ -1,7 +1,7 @@
 FROM golang:1.8-alpine
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache git && rm -rf /var/cache/apk/*
+    apk add --no-cache git libgit2-dev alpine-sdk && rm -rf /var/cache/apk/*
 
 RUN go get -v github.com/d2one/ngsweatherbot
 

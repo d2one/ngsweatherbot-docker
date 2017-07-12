@@ -6,4 +6,4 @@ docker-build: Dockerfile
 
 docker-run:
 	@echo "Here's an example command on how to run a webhook container:"
-	@echo "docker run -d --name=$(CONTAINER_NAME) -e \"SOME CODE\" $(DOCKER_IMAGE_NAME) "
+	@echo "docker run -d --name=$(CONTAINER_NAME) -e \"TELEGRAM_BOT_KEY=TELEGRAM_BOT_KEY\" $(DOCKER_IMAGE_NAME) "
