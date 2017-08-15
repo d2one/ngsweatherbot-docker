@@ -7,7 +7,10 @@ RUN go get -v github.com/d2one/ngsweatherbot
 
 FROM alpine
 RUN apk update && apk upgrade && \
-    apk add --no-cache bash git && rm -rf /var/cache/apk/*
+    apk add --no-cache bash ca-certificates tzdata && rm -rf /var/cache/apk/*
+
+RUN cp /usr/share/zoneinfo/Asia/Novosibirsk  /etc/localtime
+RUN echo "Asia/Novosibirsk" >  /etc/timezone
 
 COPY --from=0 /go/bin/ngsweatherbot /usr/bin/ngsweatherbot
 
