@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+    weatherbot:
+      image: weatherbot
+      volumes:
+        - $PWD/volumes/:/ngsweatherbot/data/
+      environment:
+        - NGS_WEATHER_BOT_TELEGRAM_KEY=SOMEKEY
+        - NGS_WEATHER_BOT_DEBUG=false
+        - NGS_WEATHER_BOT_DB_PATH=/ngsweatherbot/data/db.sqlite3
+      deploy:
+        mode: replicated
+        replicas: 1
